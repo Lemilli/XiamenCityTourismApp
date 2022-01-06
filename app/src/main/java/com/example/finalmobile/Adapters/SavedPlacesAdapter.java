@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,17 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalmobile.DataModels.PlaceData;
 import com.example.finalmobile.PlaceDetailsActivity;
-import com.example.finalmobile.PlacesActivity;
 import com.example.finalmobile.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.ArrayList;
 
-public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHolder> {
+public class SavedPlacesAdapter extends RecyclerView.Adapter<SavedPlacesAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<PlaceData> places;
 
-    public PlacesAdapter(Context context, ArrayList<PlaceData> places) {
+    public SavedPlacesAdapter(Context context, ArrayList<PlaceData> places) {
         this.context = context;
         this.places = places;
     }
@@ -34,7 +33,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.place_row, parent, false);
+        View view = inflater.inflate(R.layout.saved_place_row, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -42,7 +41,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.name.setText(String.valueOf(places.get(position).name));
         holder.type.setText(String.valueOf(places.get(position).type));
-        holder.ratingBar.setRating(places.get(position).rating);
         holder.cl.setBackgroundResource(places.get(position).imageUrl);
 
         holder.btn.setOnClickListener(view -> {
@@ -57,6 +55,25 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
             intent.putExtra("description", places.get(position).description);
             context.startActivity(intent);
         });
+
+//        // Assign color on load
+//        if(holder.switch_visited.isChecked()){
+//            holder.tv_visited.setText("Visited");
+//            holder.tv_visited.setTextColor(context.getResources().getColor(R.color.green));
+//        } else {
+//            holder.tv_visited.setText("Not Visited");
+//            holder.tv_visited.setTextColor(context.getResources().getColor(R.color.lightGrey));
+//        }
+
+        holder.switch_visited.setOnClickListener(view -> {
+            if(holder.switch_visited.isChecked()){
+                holder.tv_visited.setText("Visited");
+                holder.tv_visited.setTextColor(context.getResources().getColor(R.color.green));
+            } else {
+                holder.tv_visited.setText("Not Visited");
+                holder.tv_visited.setTextColor(context.getResources().getColor(R.color.lightGrey));
+            }
+        });
     }
 
     @Override
@@ -66,18 +83,20 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, type;
-        RatingBar ratingBar;
         ConstraintLayout cl;
         MaterialButton btn;
+        SwitchMaterial switch_visited;
+        TextView tv_visited;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.place_name);
             type = itemView.findViewById(R.id.place_type);
-            ratingBar = itemView.findViewById(R.id.rating_place);
             cl = itemView.findViewById(R.id.cl_place_row);
             btn = itemView.findViewById(R.id.read_more);
+            switch_visited = itemView.findViewById(R.id.switch_visited);
+            tv_visited = itemView.findViewById(R.id.visited);
         }
     }
 }

@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalMobile">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GetHelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TermsOfServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlaceDetailsActivity"
             android:exported="false" />
         <activity

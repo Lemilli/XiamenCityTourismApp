@@ -3,6 +3,7 @@ package com.example.finalmobile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,10 @@ public class SignupActivity extends AppCompatActivity {
                     if (!checkUsername) {
                         Boolean insert = db.insertData(username, password);
                         if (!insert) {
+                            SharedPreferences.Editor editor = getSharedPreferences("PrefsFile", MODE_PRIVATE).edit();
+                            editor.putString("username", etUsername.getText().toString());
+                            editor.apply();
+
                             Toast.makeText(SignupActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
@@ -60,6 +65,7 @@ public class SignupActivity extends AppCompatActivity {
         tvSignIn.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 }

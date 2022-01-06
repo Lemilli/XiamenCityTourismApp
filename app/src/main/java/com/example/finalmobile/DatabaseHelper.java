@@ -64,5 +64,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
     }
 
+    public Boolean deleteAccount(String username) {
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        int result = myDB.delete("users", "username = ?", new String[]{username});
+        Log.i("TAGGGGGGGGGGG", "RESULT = " + result);
 
+        if(result > 0) return true;
+        return false;
+    }
+
+    public Boolean changePassword(String username, String newPassword) {
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("password", newPassword);
+        int result = myDB.update("users", contentValues, "username = ?", new String[]{username});
+        Log.i("TAGGGGGGGGGGG", "RESULT = " + result);
+
+        if(result > 0) return true;
+        return false;
+    }
 }

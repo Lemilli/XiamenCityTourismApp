@@ -7,8 +7,8 @@ public class PlaceData {
     public double lng;
     public float rating;
     public Integer imageUrl;
-    String address;
-    String description;
+    public String address;
+    public String description;
     // Popular mentions? - smth like under renovation, statues, turtles
 
     public PlaceData(String name, String type, double lat, double lng, float rating,

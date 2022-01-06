@@ -3,6 +3,7 @@ package com.example.finalmobile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,8 +36,15 @@ public class LoginActivity extends AppCompatActivity {
                 Boolean checkUserPass = db.checkUsernamePassword(username, password);
                 if(checkUserPass == true){
                     Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+
+                    // save username into shared prefs
+                    SharedPreferences.Editor editor = getSharedPreferences("PrefsFile", MODE_PRIVATE).edit();
+                    editor.putString("username", username);
+                    editor.apply();
+
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                 }

@@ -37,13 +37,21 @@ public class PlacesActivity extends AppCompatActivity {
                 "Here are some of the attractions that make the islet so popular with natives and international visitors, as well as some important information for making one's island adventure enjoyable."));
         places.add(new PlaceData("Bailuzhou Park", "Park", 24.472884934238202, 118.0890941169133, 4.0f, R.drawable.bailuzhou, "Si Ming Qu, Xia Men Shi", "Bailuzhou Park is also known as the Xiamen Open Square Park. The park has a great environment and is especially good for peaceful and quiet walks." +
                 "\n" +
-                "You will find the park is divided into Central Park and West Park. In the West Park you will be able to find plenty of music options in the form of fountain squares and plazas. There is also a statue of the egret goddess located in the park. You will be able to find the statue at the south side of the park at the yacht dock. The statue consists of the goddess sitting on a rock as she combs her long beautiful hair. As she combs her hair she allows us to see her in all her beauty while carrying a small egret on her shoulders. The sculpture is a symbol of Xiamen."));
+                "You will find the park is divided into Central Park and West Park. In the West Park you will be able to find plenty of music options in the form of fountain squares and plazas.\n\nThere is also a statue of the egret goddess located in the park. You will be able to find the statue at the south side of the park at the yacht dock. The statue consists of the goddess sitting on a rock as she combs her long beautiful hair. As she combs her hair she allows us to see her in all her beauty while carrying a small egret on her shoulders. The sculpture is a symbol of Xiamen."));
         adapter = new PlacesAdapter(PlacesActivity.this, places);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(PlacesActivity.this));
 
         btn.setOnClickListener(view -> {
             Intent intent = new Intent(PlacesActivity.this, PlaceDetailsActivity.class);
+            intent.putExtra("name", "Nanputuo Temple");
+            intent.putExtra("type", "Religious Site");
+            intent.putExtra("lat", 24.446550999573216);
+            intent.putExtra("lng", 118.06623184355593);
+            intent.putExtra("rating", 4.0f);
+            intent.putExtra("imageUrl", R.drawable.nanputuo);
+            intent.putExtra("address", "Siming District, Xiamen, China");
+            intent.putExtra("description", "Gulangyu is directly off the southeastern coast of China, and the quaint tourist attraction is part of the bustling city of Xiamen. The island is famous for its natural beauty, colonial style architecture and a myriad of interesting museums.\\n\\nBesides the island's historic significance as an international port, Gulangyu is a great place to escape from city traffic and highrise, though Xiamen has consistently been voted as one of the most livable cities in China, and Gulangyu Island has been recognized as one of Fujian Province's most scenic places.\\n\\nHere are some of the attractions that make the islet so popular with natives and international visitors, as well as some important information for making one's island adventure enjoyable.");
             startActivity(intent);
         });
     }
