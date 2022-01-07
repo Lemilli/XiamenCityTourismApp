@@ -41,7 +41,7 @@ public class SignupActivity extends AppCompatActivity {
                 if (password.equals(repassword)) {
                     Boolean checkUsername = db.checkUsername(username);
                     if (!checkUsername) {
-                        Boolean insert = db.insertData(username, password);
+                        Boolean insert = db.insertUserData(username, password);
                         if (!insert) {
                             SharedPreferences.Editor editor = getSharedPreferences("PrefsFile", MODE_PRIVATE).edit();
                             editor.putString("username", etUsername.getText().toString());

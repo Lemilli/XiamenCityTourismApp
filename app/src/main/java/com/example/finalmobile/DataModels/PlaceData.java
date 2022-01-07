@@ -9,10 +9,10 @@ public class PlaceData {
     public Integer imageUrl;
     public String address;
     public String description;
-    // Popular mentions? - smth like under renovation, statues, turtles
+    public boolean isVisited;
 
     public PlaceData(String name, String type, double lat, double lng, float rating,
-                     Integer imageUrl, String address, String description) {
+                     Integer imageUrl, String address, String description, boolean isVisited) {
         this.name = name;
         this.type = type;
         this.lat = lat;
@@ -21,5 +21,6 @@ public class PlaceData {
         this.imageUrl = imageUrl;
         this.address = address;
         this.description = description;
+        this.isVisited = isVisited;
     }
 }

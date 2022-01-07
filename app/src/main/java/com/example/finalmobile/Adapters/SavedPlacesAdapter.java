@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalmobile.DataModels.PlaceData;
+import com.example.finalmobile.DatabaseHelper;
 import com.example.finalmobile.PlaceDetailsActivity;
 import com.example.finalmobile.R;
 import com.google.android.material.button.MaterialButton;
@@ -22,10 +23,12 @@ import java.util.ArrayList;
 public class SavedPlacesAdapter extends RecyclerView.Adapter<SavedPlacesAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<PlaceData> places;
+    private DatabaseHelper db;
 
     public SavedPlacesAdapter(Context context, ArrayList<PlaceData> places) {
         this.context = context;
         this.places = places;
+        db = new DatabaseHelper(context);
     }
 
 
@@ -56,20 +59,22 @@ public class SavedPlacesAdapter extends RecyclerView.Adapter<SavedPlacesAdapter.
             context.startActivity(intent);
         });
 
-//        // Assign color on load
-//        if(holder.switch_visited.isChecked()){
-//            holder.tv_visited.setText("Visited");
-//            holder.tv_visited.setTextColor(context.getResources().getColor(R.color.green));
-//        } else {
-//            holder.tv_visited.setText("Not Visited");
-//            holder.tv_visited.setTextColor(context.getResources().getColor(R.color.lightGrey));
-//        }
+        holder.switch_visited.setChecked(places.get(position).isVisited);
+        if(places.get(position).isVisited){
+            holder.tv_visited.setText("Visited");
+            holder.tv_visited.setTextColor(context.getResources().getColor(R.color.green));
+        } else {
+            holder.tv_visited.setText("Not Visited");
+            holder.tv_visited.setTextColor(context.getResources().getColor(R.color.lightGrey));
+        }
 
         holder.switch_visited.setOnClickListener(view -> {
             if(holder.switch_visited.isChecked()){
+                db.changeVisited(places.get(position).name, true);
                 holder.tv_visited.setText("Visited");
                 holder.tv_visited.setTextColor(context.getResources().getColor(R.color.green));
             } else {
+                db.changeVisited(places.get(position).name, false);
                 holder.tv_visited.setText("Not Visited");
                 holder.tv_visited.setTextColor(context.getResources().getColor(R.color.lightGrey));
             }
