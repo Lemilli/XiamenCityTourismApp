@@ -48,7 +48,7 @@
                 tools:layout_editor_absoluteY="58dp">
 
                 <TextView
-                    android:id="@+id/recommended_place_name"
+                    android:id="@+id/details_hotel_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -79,7 +79,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recommended_place_name" />
+                    app:layout_constraintTop_toBottomOf="@id/details_hotel_name" />
 
                 <RatingBar
                     android:id="@+id/rating"

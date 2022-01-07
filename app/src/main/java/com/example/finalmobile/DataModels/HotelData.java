@@ -7,11 +7,11 @@ public class HotelData {
     public double lng;
     public float rating;
     public Integer imageUrl;
-    String address;
-    String description;
-    Boolean hasPool;
-    Boolean hasWifi;
-    Boolean hasFitness;
+    public String address;
+    public String description;
+    public Boolean hasPool;
+    public Boolean hasWifi;
+    public Boolean hasFitness;
 
     public HotelData(String name, Integer price, double lat, double lng, float rating,
                      Integer imageUrl, String address, String description, Boolean hasPool,

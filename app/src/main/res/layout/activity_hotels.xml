@@ -48,7 +48,7 @@
                 tools:layout_editor_absoluteY="58dp">
 
                 <TextView
-                    android:id="@+id/recommended_place_name"
+                    android:id="@+id/details_hotel_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -79,7 +79,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recommended_place_name" />
+                    app:layout_constraintTop_toBottomOf="@id/details_hotel_name" />
 
                 <TextView
                     android:id="@+id/tv_per_night"
@@ -94,7 +94,7 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/pricing"
                     app:layout_constraintStart_toEndOf="@+id/pricing"
-                    app:layout_constraintTop_toBottomOf="@+id/recommended_place_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/details_hotel_name" />
 
                 <RatingBar
                     android:id="@+id/rating"
@@ -106,7 +106,7 @@
                     android:isIndicator="true"
                     android:numStars="5"
                     android:progressBackgroundTint="@color/black"
-                    android:rating="4.65"
+                    android:rating="4.6"
                     android:stepSize="0.1"
                     android:theme="@style/RatingBar"
                     app:layout_constraintBottom_toBottomOf="parent"

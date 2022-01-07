@@ -3,7 +3,6 @@ package com.example.finalmobile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -35,10 +34,10 @@ public class PlaceDetailsActivity extends AppCompatActivity {
 
         gotoBtn = findViewById(R.id.goto_place);
         back_btn = findViewById(R.id.back_btn);
-        tv_name = findViewById(R.id.recommended_place_name);
+        tv_name = findViewById(R.id.details_hotel_name);
         tv_type = findViewById(R.id.details_place_type);
         tv_address = findViewById(R.id.address);
-        tv_description = findViewById(R.id.place_description);
+        tv_description = findViewById(R.id.details_hotel_description);
         ratingBar = findViewById(R.id.rating);
         imageView = findViewById(R.id.imageView3);
         saveBtn = findViewById(R.id.save_place);

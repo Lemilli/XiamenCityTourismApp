@@ -1,6 +1,7 @@
 package com.example.finalmobile.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalmobile.DataModels.HotelData;
+import com.example.finalmobile.HotelDetailsActivity;
+import com.example.finalmobile.HotelsActivity;
 import com.example.finalmobile.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -43,7 +46,19 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
         holder.cl.setBackgroundResource(hotels.get(position).imageUrl);
 
         holder.btn.setOnClickListener(view -> {
-            // TODO: Intent to more details page
+            Intent intent = new Intent(context, HotelDetailsActivity.class);
+            intent.putExtra("name", hotels.get(position).name);
+            intent.putExtra("price", hotels.get(position).price);
+            intent.putExtra("lat", hotels.get(position).lat);
+            intent.putExtra("lng", hotels.get(position).lng);
+            intent.putExtra("rating", hotels.get(position).rating);
+            intent.putExtra("imageUrl", hotels.get(position).imageUrl);
+            intent.putExtra("address", hotels.get(position).address);
+            intent.putExtra("description", hotels.get(position).description);
+            intent.putExtra("hasPool", hotels.get(position).hasPool);
+            intent.putExtra("hasWifi", hotels.get(position).hasWifi);
+            intent.putExtra("hasFitness", hotels.get(position).hasFitness);
+            context.startActivity(intent);
         });
     }
 

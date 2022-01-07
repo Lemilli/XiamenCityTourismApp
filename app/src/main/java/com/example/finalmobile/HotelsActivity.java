@@ -1,5 +1,6 @@
 package com.example.finalmobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +56,23 @@ public class HotelsActivity extends AppCompatActivity {
                 "Guests can work at the business center, or relax at the sauna and steam rooms. The hotel also provides car rentals, laundry and dry cleaning services.\n" +
                 "\n" +
                 "Above Cafe serves international buffet spreads on the 4th floor, while Yue Yuan Chinese Restaurant offers Chinese delicacies. After meals, you may choose to unwind with a drink at Royal Bar.", true, true, false));
+
+        btn.setOnClickListener(view -> {
+            Intent intent = new Intent(HotelsActivity.this, HotelDetailsActivity.class);
+            intent.putExtra("name", "Swiss Grand Xiamen");
+            intent.putExtra("price", 102);
+            intent.putExtra("lat", 24.446550999573216);
+            intent.putExtra("lng", 118.06623184355593);
+            intent.putExtra("rating", 4.6f);
+            intent.putExtra("imageUrl", R.drawable.swiss);
+            intent.putExtra("address", "8 Jianye Road, Hubin Bei, Siming, 361012");
+            intent.putExtra("description", "Located near the famous Coffee Street, Marco Polo Xiamen is a 20-minute drive to Xiamen International Airport and also close to the business district. The hotel offers accommodations with sweeping views of the Yuandang Lake and the white egret protection zone.\n\nMarco Polo Xiamen is a 10-minute drive from Nanputuo Temple and Gulangyu Ferry Pier. Xiamen International Conference Center is 25 minutes' drive away and it is a 40-minute drive from Xiamen North Railway Station.\n\nMarco Polo Xiamen features 300 well-appointed rooms and suites, featuring modern interiors and large bay windows. All rooms at the property are fitted with a TV, electric kettle, wardrobe and seating area. The private bathroom includes a bathtub and shower.\n\nThe hotel features a recreation complex with an outdoor swimming pool, a fitness center, sauna, billiards and kids club. It also has a Marco Polo ballroom and 9 meeting rooms, which can cater to various events and guests’ needs.\n\nThere are 9 dining outlets at the property, providing a wide selection of global cuisine.");
+            intent.putExtra("hasPool", true);
+            intent.putExtra("hasWifi", true);
+            intent.putExtra("hasFitness", true);
+            startActivity(intent);
+        });
+
         adapter = new HotelsAdapter(HotelsActivity.this, hotels);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(HotelsActivity.this));

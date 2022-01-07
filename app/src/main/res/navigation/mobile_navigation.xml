@@ -15,7 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.finalmobile.ui.dashboard.ExploreFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_explore" />
+        tools:layout="@layout/fragment_saved_places" />
 
     <fragment
         android:id="@+id/navigation_notifications"

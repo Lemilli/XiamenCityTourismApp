@@ -157,7 +157,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("isVisited", value);
-        int result = myDB.update("places", contentValues, "name = ?", new String[]{name});
+        int result = myDB.update("saved_places", contentValues, "name = ?", new String[]{name});
         Log.i("TAGGGGGGGGGGG", "isVisited RESULT = " + result);
 
         if (result > 0) return true;
