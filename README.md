@@ -1,6 +1,4 @@
-# GreenBin
-
-Tourism Application connected with Google Maps for Xiamen city in China.
+# Tourism Application connected with Google Maps for Xiamen city in China.
 
 ![start_screen](https://user-images.githubusercontent.com/42071535/161420690-895bb2a8-82f0-46af-868d-d9f41af011b1.png)
 
